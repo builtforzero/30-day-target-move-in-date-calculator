@@ -2,25 +2,208 @@
 <html lang="en">
 
 <head>
-    <title>Title of Project</title>
+    <title>30 Day Target Move-in Date Calculator | Built for Zero</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <!-- CS Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,700;0,900;1,200;1,400;1,500;1,700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,900;1,400;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="../assets/favicon.png" type="image/x-icon">
 </head>
 
 <body>
-    <div id="root">
-        <h1>HEADER TEXT</h1>
-        <h2>Subtitle text</h2>
-        <p>Use this body copy to build your own project.</p>
-        <p class="subtitle">Or edit to make your own.</p>
-    </div>
+    <form name="submitToGoogleSheet" id="formInput">
+        <div class="gridContainer">
+            <div class="pageHeader">
+                <h1 style="font-size:40px;">30 Day Target Move-in Date Calculator   |   Built for Zero</h1>
+                <p style="font-size: 16px; font-weight: bold;"> This tool is designed to help you set goals around a monthly Housing Placement rate to help drive an increase in your community's outflow.</p>
+                <p style="font-size: 16px;">Enter your data along with your targets. Then, press the <b>GO!</b> button to view your <b>Suggested Reduction Goals</b>.<br></p>
+            </div>
+            <div class="disclaimer">
+                <p style="font-size: 15px; background-color:rgba(90, 90, 90, 0.647); padding: 1%;">
+                    <b>PLEASE NOTE: </b>There is no guarantee that reaching these Housing Placement and Outflow targets will result in a reduction in your community's Actively Homeless Number. 
+                    The tool below uses a simple linear model that rests on the assumption that your monthly inflow and outflow are fairly constant each month and that the three months of 
+                    data you enter below are representative of your typical inflow and outflow. Since it is impossible to accurately predict what your actual inflow and outflow will be in the future, 
+                    these assumptions are non-trivial. Therefore, this tool is for goal-setting purposes only and should not be relied upon to provide an accurate projection of what will happen in your homelessness system. 
+                </p>
+            </div>
+            <div class="communityHeader">
+                <h2>COMMUNITY & POPULATION</h2>
+            </div> 
+            <div class="communityDetails">
+                <div style="display: inline-block;">
+                    <label for="dropdown">COMMUNITY</label>
+                    <select class="input" name="Community" id="communityDropdown" required>
+                        <option value="" selected disabled hidden>Select a Community</option>
+                    </select>
+                </div>
+                <div style="display: inline-block;">
+                    <label for="dropdown">POPULATION</label>
+                    <select class="input" name="Population" id="populationDropdown" required>
+                        <option value="" selected disabled hidden>Select a Population</option>
+                        <option>Single Adults</option>
+                        <option>Youth</option>
+                        <option>Families</option>
+                    </select>
+                </div>
+                <div style="display: inline-block;">
+                    <label for="dropdown">SUBPOPULATION</label>
+                    <select class="input" name="Subpopulation" id="subpopulationDropdown" required>
+                        <option value="" selected disabled hidden>Select a Subpopulation</option>
+                        <option>Veteran</option>
+                        <option>Chronic</option>
+                        <option>All</option>
+                    </select>
+                </div>
+            </div>
+            <div class="currentMonth">
+                <h2>CURRENT STATE</h2>
+                <label for="dropdown">CURRENT MONTH</label><br><br>
+                <input type="month" class="input" name="Current Month" id="currentMonth" readonly>
+            </div>
+            <div class="currentActivelyHomeless">
+                <label for="input">CURRENT ACTIVELY HOMELESS NUMBER</label>
+                <div class="helptext">Enter the number of individuals currently experiencing homelessness in your community</div>
+                <input class="form-input" name="Current Actively Homeless" type="number" min="0" id="currentActivelyHomelessInput" required>
+            </div>
+            <div class="targetMonth">
+                <h2>TARGET STATE</h2>
+                <label for="dropdown">TARGET MONTH</label>
+                <div class="helptext">Select the date by which you want to reach the goal</div>
+                <input type="month" class="input" name="Target Month" id="targetMonthDropdown" required>
+            </div>
+            <div class="targetActivelyHomeless">
+                <label for="input">TARGET ACTIVELY HOMELESS NUMBER</label>
+                <div class="helptext">Enter the Actively Homeless Number you would like to reach by the Target Month</div>
+                <input class="form-input" name="Target Actively Homeless" type="number" min="0" id="targetActivelyHomelessInput" required>
+            </div>
+            
+            <div class="dataHeader">
+                <h2>ENTER YOUR MOST RECENT 3 MONTHS OF DATA</h2>                    
+                <button type="button" style="width: 20%; margin-right: 2%;" id="autofill-button">AUTOFILL DATA</button>
+                <p style="color:#ffd2e6; display: inline-block;" id="autofillError"></p>
+            </div>
+            <div class="monthLabel"><label for="input">MONTH</label></div>
+            <div class="inflowLabel">
+                <label for="input">TOTAL INFLOW</label>
+                <div class="helptext" style="width: 100%;">Newly Identified +<br>Returned from Housing + <br>Returned from Inactive</div>
+            </div>
+            <div class="outflowLabel">
+                <label for="input">TOTAL OUTFLOW</label>
+                <div class="helptext" style="width: 100%;">Housing Placements +<br>Moved to Inactive +<br>No Longer Meets Population Criteria</div>
+            </div>
+            <div class="hpLabel"><label for="input">HOUSING PLACEMENTS</label></div>
 
+            <div class="month1"><input type="month" class="input" name="Month1" id="monthDropdown1" required></div>
+            <div class="inflow1"><input class="form-input" name="Month1 Inflow" type="number" min="0" id="inflowInput1" required></div>
+            <div class="outflow1"><input class="form-input" name="Month1 Total Outflow" type="number" min="0" id="outflowInput1" required></div>
+            <div class="housed1"><input class="form-input" name="Month1 Housed" type="number" min="0" id="housedInput1" required></div>
+            
+            <div class="month2"><input type="month" class="input" name="Month2" id="monthDropdown2" required></div>
+            <div class="inflow2"><input class="form-input" name="Month2 Inflow" type="number" min="0" id="inflowInput2" required></div>
+            <div class="outflow2"><input class="form-input" name="Month2 Total Outflow" type="number" min="0" id="outflowInput2" required></div>
+            <div class="housed2"><input class="form-input" name="Month2 Housed" type="number" min="0" id="housedInput2" required></div>
+            
+            <div class="month3"><input type="month" class="input" name="Month3" id="monthDropdown3" required></div>
+            <div class="inflow3"><input class="form-input" name="Month3 Inflow" type="number" min="0" id="inflowInput3" required></div>
+            <div class="outflow3"><input class="form-input" name="Month3 Total Outflow" type="number" min="0" id="outflowInput3" required></div>
+            <div class="housed3"><input class="form-input" name="Month3 Housed" type="number" min="0" id="housedInput3" required></div>
+            
+            <div class="goalParam1">
+                <h2>GOAL PARAMETERS</h2>
+                <img src="../assets/noun_month_3202614.png">
+                <p id="paramNumMonths" style="font-size: 30px; font-weight: bold; color: #ff6f0c; margin: 0%;"></p>
+                <p style="color: #ff6f0c;">month(s) to reach your target</p>
+                
+                <img src="../assets/noun_people_3457286.png">
+                <p id="paramTargetNetChange" style="font-size: 30px; font-weight: bold; color: #86af15; margin: 0%;"></p>
+                <p style="color: #86af15;">person reduction on your active list</p>
+            </div>
+            <div class="goalParam2">
+                <img src="../assets/noun_homeless_3418188.png">
+                <p id="paramAvgInflow" style="font-size: 30px; font-weight: bold; color: #a50a51; margin: 0%;"></p>
+                <p style="color: #a50a51;">people joining the list each month<br>(average total monthly inflow)</p>
+            </div>
+            <div class="goalParam3">
+                <img src="../assets/noun_exit_2590544.png">
+                <p id="paramAvgOutflow" style="font-size: 30px; font-weight: bold; color: #0494cb; margin: 0%;"></p>
+                <p style="color: #0494cb;">people moving off the list each month<br>(average total monthly outflow)</p>
+                
+                <img src="../assets/noun_Home_680045.png">
+                <p id="paramAvgHoused" style="font-size: 30px; font-weight: bold; color: #12b5ea; margin: 0%;"></p>
+                <p style="color: #12b5ea;">people moving into housing<br>(average monthly housing placements)</p>
+            </div>
+            <div class="validationMsg" style="color:#ffd2e6; padding: 1%; text-align: center;" id="dataValidationWarning">
+                <p style="font-size: 15px;">All fields are required. Averages calculated below are rounded up to the next whole number to avoid counting "fractional people." :)</p></div>
+            <div class="submitButton" id="button-wrapper">
+                <button type="submit" id="submit-button">GO!</button>
+                <br><br>
+            </div>
 
-    <script src="./main.js"></script>
+            <div class="suggestedGoal" id="suggestedGoal">
+                <h2 style="text-align: center; vertical-align: middle;">SUGGESTED GOAL</h2>
+            </div>
+            <div class="goal">
+                <p  style="display: none;" id="goal"> House <span style="font-weight: bold; color:#12b5ea;" id="goalTargetHousingRate"></span> people per month</p>
+            </div>
+            
+            <div class="explanation1">
+                <h2 style="text-align: center;">EXPLANATION</h2> <br><br>
+                <div style="display: none;" id="explanation1">
+                    <p >To reduce your active list by
+                        <span style="font-size: 20px; font-weight:bold; color:#86af15;" id="explanationTargetNetChange"></span> people in 
+                        <span style="font-size: 20px; font-weight:bold; color:#ff6f0c;" id="explanationNumMonths"></span> month(s), you will need to reduce your Actively Homeless Number by 
+                        <span style="font-size: 20px; font-weight:bold; color:rgb(35, 35, 35);" id="explanationTargetNetChangeRate"></span> people per month. 
+                    </p>
+                    <br>
+                    <span style="font-size: 20px; font-weight:bold; color:#86af15;" id="equationTargetNetChange"></span> people / 
+                    <span style="font-size: 20px; font-weight:bold; color:#ff6f0c;" id="equationNumMonths"></span> month(s)
+                    <p style="font-weight:bold; color:rgb(35, 35, 35);">= <span style="font-size: 20px;" id="equationTargetNetChangeRate"></span> person monthly reduction</p>
+                </div>
+            </div>
+            <div class="explanation2">
+                <div style="display: none;" id="explanation2">
+                    <p>Assuming 
+                        <span style="font-size: 20px; font-weight:bold; color: #a50a51;" id="explanationAvgInflow"></span> people are joining your list each month, you will need to have 
+                        <span style="font-size: 20px; font-weight:bold; color:rgb(35, 35, 35)" id="explanationTargetOutflowRate"></span> people move off your list each month. 
+                    </p>
+                    <br>
+                    <span style="font-size: 20px; font-weight:bold; color:rgb(35, 35, 35);" id="equationTargetNetChangeRate2"></span> person monthly reduction + 
+                    <span style="font-size: 20px; font-weight:bold; color: #a50a51;" id="equationAvgInflow"></span> person monthly inflow
+                    <p style="font-weight:bold; color:rgb(35, 35, 35);">= <span style="font-size: 20px;" id="equationTargetOutflowRate"></span> person monthly outflow needed</p>
+                </div>
+            </div>
+            <div class="explanation3">
+                <div style="display: none;" id="explanation3">
+                    <p>Assuming 
+                        <span style="font-size: 20px; font-weight:bold; color: #0494cb;" id="explanationAvgTotalOutflow"></span> people are currently moving off the list each month, 
+                        <span style="font-size: 20px; font-weight:bold; color: #12b5ea;" id="explanationAvgHoused"></span> due to moving into housing and 
+                        <span style="font-size: 20px; font-weight:bold; color: rgb(35, 35, 35);" id="explanationOtherOutflow"></span> due to other outflow, you can increase your monthly housing placements to 
+                        <span style="font-size: 20px; font-weight:bold; color: rgb(35, 35, 35);" id="explanationTargetHousingRate"></span> people per month to reach your goal. 
+                    </p>
+                    <br>
+                    <span style="font-size: 20px; font-weight: bold; color: #0494cb;" id="equationAvgTotalOutflow"></span> person total outflow - 
+                    <span style="font-size: 20px; font-weight: bold; color: #12b5ea;" id="equationAvgHoused"></span> current monthly housing placements
+                    <p style="font-weight: bold; color: rgb(35, 35, 35)"> = <span style="font-size: 20px;" id="equationOtherOutflow";></span> person monthly other outflow</p>
+                    <br>
+                    <span style="font-size: 20px; font-weight:bold; color:rgb(35, 35, 35);" id="equationTargetOutflowRate2"></span> person monthly outflow needed - 
+                    <span style="font-size: 20px; font-weight:bold; color: rgb(35, 35, 35);" id="equationOtherOutflow2"></span> person monthly other outflow
+                    <p style="font-weight:bold; color:rgb(35, 35, 35);">= <span style="font-size: 20px;" id="equationTargetHousingRate"></span> monthly housing placements needed</p>
+                </div>
+            </div>
+            <div class="note" style="font-size: small;">
+                <b>NOTE:</b> This estimate is based on the assumption that your monthly Total Inflow and Other Outflow rates remain similar to the 3 month averages calculated above. Please bear in mind that 
+                    past performance is not indicative of future performance, particularly for factors like Inflow and Other Outflow which are heavily impacted by external factors outside the control of your homelessness response system.
+                <br><br>
+                <p><b>Icon credits: </b>month by Adrien Coquet from the Noun Project, people by Ainsley Agatha from the Noun Project, homeless by ZakaUddin from the Noun Project,
+                    discard by priyanka from the Noun Project, Home by Gregor Cresnar from the Noun Project</p>
+                </div>
+        </div>
+    </form>
+
+    <!-- Main JS script -->
+    <script type="module" src="./main.js"></script>
 </body>
 
 </html>
