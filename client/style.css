@@ -1,0 +1,49 @@
+:root {
+    /* Colors */
+    --color-main: #a50a51;
+    --color-second: #0494cb;
+    --color-neutral: #636467;
+    --color-alert: red;
+
+    /* Fonts */
+    --font-title: 'Asap Condensed', sans-serif;
+    --font-body: 'Raleway', sans-serif;
+
+    /* Font Sizes */
+    --root-size: 16px;
+    --h1-size: 3.2em;
+    --h2-size: 1.8em;
+    --subtitle-size: 0.8em;
+}
+
+html,
+body,
+h1,
+h2,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: var(--root-size);
+}
+
+body {
+    font-family: var(--font-body);
+}
+
+h1 {
+    font-family: var(--font-title);
+    font-size: var(--h1-size);
+}
+
+h2 {
+    font-family: var(--font-body);
+    font-size: var(--h2-size);
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-size: var(--subtitle-size);
+}
