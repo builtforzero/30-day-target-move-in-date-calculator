@@ -33,23 +33,13 @@ body {
       grid-column: 5/8;
       grid-row: 1;
     }
-    .communityHeader {
-      grid-column: 1/5;
-      grid-row: 2;
-    }
     .communityDetails {
       grid-column: 1/5;
-      grid-row: 3;
-    }
-    .suggestedGoal {
-      grid-column: 5/8;
-      grid-row: 2;
-      background-color:#12b5ea;
-      padding: 2% 2%;
+      grid-row: 2/3;
     }
     .goal {
       grid-column: 5/8;
-      grid-row: 3;
+      grid-row: 2/4;
       background-color:  rgba(205, 205, 205, 0.178);
       font-size: 28px; 
       color:white; 
@@ -178,18 +168,18 @@ body {
       grid-column: 6/8;
       grid-row: 9/11;
     }
-    .validationMsg {
-      grid-column: 2/4;
-      grid-row: 11;
-    }
     .submitButton {
-      grid-column: 2/5;
-      grid-row: 12;
+      grid-column: 1/5;
+      grid-row: 11;
     }
     .note {
       grid-column: 5/8;
-      grid-row: 11/13;
+      grid-row: 11;
       padding: 3% 1%;
+    }
+    .iconCredit {
+      grid-column: 1/8;
+      grid-row: 13;
     }
   img {
     width: 25%;
@@ -239,7 +229,7 @@ body {
     color:black;
   }
   button {
-    width: 60%;
+    width: 50%;
     padding: 5px;
     color: white;
     background-color: #a50a51;
@@ -257,6 +247,21 @@ body {
     align-items: center;
     justify-content: center;
   }
+  .loader {
+    border: 7px solid #f3f3f3; /* Light grey */
+    border-top: 7px solid #a50a51; /* Blue */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    vertical-align: -10px;
+    margin-left: 2%;
+  }  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
   
   /* @media only screen and (max-width: 600px) {
     .gridContainer {

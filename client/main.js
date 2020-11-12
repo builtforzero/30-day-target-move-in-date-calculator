@@ -128,11 +128,15 @@ document.getElementById("autofill-button").onclick = function() {
 function showHideGoal(showHide) {
     if (showHide == "hide") {
         document.getElementById("goal").style.display = "none";
+        document.getElementById("goalTargetExplanation").style.display = "none";
+        document.getElementById("goalAction").style.display = "none";
         document.getElementById("explanation1").style.display = "none";
         document.getElementById("explanation2").style.display = "none";
         document.getElementById("explanation3").style.display = "none";
     } else if (showHide == "show") {
         document.getElementById("goal").style.display = "block";
+        document.getElementById("goalTargetExplanation").style.display = "block";
+        document.getElementById("goalAction").style.display = "block";
         document.getElementById("goalMet").style.display = "none";
         document.getElementById("explanation1").style.display = "block";
         document.getElementById("explanation2").style.display = "block";
@@ -145,6 +149,9 @@ function hideParameters() {
     document.getElementById('paramAvgInflow').innerHTML = "";
     document.getElementById("paramAvgHoused").innerHTML = "";
     document.getElementById("paramAvgOutflow").innerHTML = "";
+}
+function hideLoader() {
+    document.getElementById("loader").style.display = "none"
 }
 
 // DISPLAY RESULTS AND WRITE TO GOOGLE SHEET WHEN "SUBMIT" IS CLICKED
@@ -202,6 +209,9 @@ function submitData(formName){
             hideParameters();
             document.getElementById("dataValidationWarning").innerHTML = "<b>ERROR: </b>Housing Placement numbers must be smaller than the Total Outflow numbers.";
         } else {
+            // Show loader
+            document.getElementById("loader").style.display = "inline-block";
+
             // Show parameters
             document.getElementById("paramNumMonths").innerHTML = timeframe;
             document.getElementById("paramTargetNetChange").innerHTML = targetNetChange;
@@ -220,6 +230,7 @@ function submitData(formName){
                 showHideGoal("show");
                 document.getElementById("currentTargetHousingRate").innerHTML = avg3MoHoused;
                 document.getElementById("goalTargetHousingRate").innerHTML = targetHousingRate;    
+                document.getElementById("goalTargetHousingRate2").innerHTML = targetHousingRate;
 
                 document.getElementById("explanationTargetNetChange").innerHTML = targetNetChange;
                 document.getElementById("explanationNumMonths").innerHTML = timeframe;
@@ -262,6 +273,9 @@ function submitData(formName){
             fetch(scriptURL, {method: "POST", body: formData})
                 .then((response) => console.log("Success!", response))
                 .catch((error) => console.error("Error!", error.message));
+            
+            // Hide loader
+            setTimeout(hideLoader, 500);
         }
     });
 }
