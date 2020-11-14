@@ -30,22 +30,26 @@ fetch(getCmtyNamesURL)
     .catch(error => console.error('Error!', error.message));
 
 // SET CURRENT DATE AND RESTRICT DATE INPUT VALUES
-// Hardcode in the Current Month based on today's date
+// Default Current Month based on today's date
 var today = new Date();
 var todayMo = today.getMonth();
 var todayYr = today.getFullYear();
-var currentMonth = new Date(todayYr, todayMo, 1);
-document.getElementById("currentMonth").valueAsDate = currentMonth;
-// Limit the Target Month to dates after today's date
-var targetMoMin = (todayMo + 2).toString();
-if(todayMo + 2 < 10) {
-    targetMoMin = '0' + targetMoMin;
+document.getElementById("currentMonth").valueAsDate = new Date(todayYr, todayMo, 1);
+// Limit the Current month to dates today & after + 3 months of data input to dates before today's date
+var thisMo = (todayMo + 1).toString();
+if (todayMo + 1 < 10) {
+    thisMo = '0' + thisMo;
 }
-document.getElementById("targetMonthDropdown").min = todayYr + "-" + targetMoMin;
-// Limit the 3 months of data input to dates before today's date
-document.getElementById("monthDropdown1").max = todayYr + "-" + todayMo + 1;
-document.getElementById("monthDropdown2").max = todayYr + "-" + todayMo + 1;
-document.getElementById("monthDropdown3").max = todayYr + "-" + todayMo + 1;
+document.getElementById("currentMonth").min = todayYr + "-" + thisMo;
+document.getElementById("monthDropdown1").max = todayYr + "-" + thisMo;
+document.getElementById("monthDropdown2").max = todayYr + "-" + thisMo;
+document.getElementById("monthDropdown3").max = todayYr + "-" + thisMo;
+// Limit Target to dates after today's date
+var nextMo = (todayMo + 2).toString();
+if (todayMo + 2 < 10) {
+    nextMo = '0' + nextMo;
+}
+document.getElementById("targetMonthDropdown").min = todayYr + "-" + nextMo;
 
 // AUTOFILL DATA FROM BACK END WHEN "AUTOFILL" BUTTON IS CLICKED
 var RFdata = []; 
@@ -117,41 +121,14 @@ document.getElementById("autofill-button").onclick = function() {
             }
         }
         if (!dataFound) {
-            document.getElementById("autofillError").innerHTML = "Sorry, no data was found.";
+            document.getElementById("autofillError").innerHTML = "<b>ERROR: </b>Sorry, no data was found.";
         }
     } else {
-        document.getElementById("autofillError").innerHTML = "Please select a Community, Population, and Subpopulation first.";
+        document.getElementById("autofillError").innerHTML = "<b>ERROR: </b>Please select a Community, Population, and Subpopulation first.";
     }
 };
-
-// SHOW/HIDE RESULTS when submit button is clicked
-function showHideGoal(showHide) {
-    if (showHide == "hide") {
-        document.getElementById("goal").style.display = "none";
-        document.getElementById("goalTargetExplanation").style.display = "none";
-        document.getElementById("goalAction").style.display = "none";
-        document.getElementById("explanation1").style.display = "none";
-        document.getElementById("explanation2").style.display = "none";
-        document.getElementById("explanation3").style.display = "none";
-    } else if (showHide == "show") {
-        document.getElementById("goal").style.display = "block";
-        document.getElementById("goalTargetExplanation").style.display = "block";
-        document.getElementById("goalAction").style.display = "block";
-        document.getElementById("goalMet").style.display = "none";
-        document.getElementById("explanation1").style.display = "block";
-        document.getElementById("explanation2").style.display = "block";
-        document.getElementById("explanation3").style.display = "block";
-    }
-}
-function hideParameters() {
-    document.getElementById("paramNumMonths").innerHTML = "";
-    document.getElementById("paramTargetNetChange").innerHTML = "";
-    document.getElementById('paramAvgInflow').innerHTML = "";
-    document.getElementById("paramAvgHoused").innerHTML = "";
-    document.getElementById("paramAvgOutflow").innerHTML = "";
-}
 function hideLoader() {
-    document.getElementById("loader").style.display = "none"
+    document.getElementById("loader").style.display = "none";
 }
 
 // DISPLAY RESULTS AND WRITE TO GOOGLE SHEET WHEN "SUBMIT" IS CLICKED
@@ -200,19 +177,27 @@ function submitData(formName){
 
         // Data validation - Current AH should be > Target AH 
         if (targetNetChange <= 0) {
-            showHideGoal("hide"); 
-            hideParameters();
+            document.getElementById("goalMet").style.display = "none";
+            document.getElementById("goal").style.display = "none";
+            document.getElementById("goalExplanation").style.display = "none";
             document.getElementById("dataValidationWarning").innerHTML = "<b>ERROR: </b>Target Actively Homeless Number should be smaller than the Current Actively Homeless Number";
         } // Data validation - HP should be < Total Outflow 
         else if (outflow1 < hp1 || outflow2 < hp2 || outflow3 < hp3) {
-            showHideGoal("hide");
-            hideParameters();
+            document.getElementById("goalMet").style.display = "none";
+            document.getElementById("goal").style.display = "none";
+            document.getElementById("goalExplanation").style.display = "none";
             document.getElementById("dataValidationWarning").innerHTML = "<b>ERROR: </b>Housing Placement numbers must be smaller than the Total Outflow numbers.";
+        }
+        else if (timeframe <= 0) {
+            document.getElementById("goalMet").style.display = "none";
+            document.getElementById("goal").style.display = "none";
+            document.getElementById("goalExplanation").style.display = "none";
+            document.getElementById("dataValidationWarning").innerHTML = "<b>ERROR: </b>Target Month should be after Current Month.";
         } else {
             // Show loader
             document.getElementById("loader").style.display = "inline-block";
 
-            // Show parameters
+            // Display parameters
             document.getElementById("paramNumMonths").innerHTML = timeframe;
             document.getElementById("paramTargetNetChange").innerHTML = targetNetChange;
             document.getElementById('paramAvgInflow').innerHTML = avg3MoInflow;
@@ -222,12 +207,15 @@ function submitData(formName){
 
             // Display the goal and explanation
             if (targetHousingRate <= avg3MoHoused) {
-                showHideGoal("hide");
+                document.getElementById("goal").style.display = "none";
+                document.getElementById("goalExplanation").style.display = "none";
                 document.getElementById("goalMet").style.display = "block";
                 document.getElementById("goalMet").innerHTML = "With your current housing placement rate of <b>" + 
                 avg3MoHoused + "</b> individuals housed each month, you are already on track to meet your goal. Keep it up!";
             } else {
-                showHideGoal("show");
+                document.getElementById("goalMet").style.display = "none";
+                document.getElementById("goal").style.display = "block";
+                document.getElementById("goalExplanation").style.display = "grid";
                 document.getElementById("currentTargetHousingRate").innerHTML = avg3MoHoused;
                 document.getElementById("goalTargetHousingRate").innerHTML = targetHousingRate;    
                 document.getElementById("goalTargetHousingRate2").innerHTML = targetHousingRate;
