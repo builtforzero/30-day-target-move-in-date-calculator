@@ -3,6 +3,7 @@
 
 <head>
     <title>30 Day Target Move-In Date Calculator | Built for Zero</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <!-- CS Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,900;1,400;1,900&display=swap"
@@ -16,7 +17,6 @@
         <div class="gridContainer">
             <div class="pageHeader">
                 <h1 style="font-size:40px; display: inline-block;">30 Day Target Move-In Date Calculator</h1>
-                <img src="../assets/favicon.png" style="width: 90px; float: right;">
                 <p style="font-size: 16px;"> Setting a Target Move-In Date Goal can bring new focus and clarity to the way that you work with clients every week. 
                     At the end of your case conferencing meeting, consistently check how many target move-in dates your team has set for the next 30 days. Are you on track to 
                     house enough people to reduce your by-name list? This goal calculator will help you know.
@@ -30,7 +30,7 @@
                     Reducing your by-name list requires accelerating your housing placements, yes, and also taking action to intentionally reduce people entering your system.
                 </p>
             </div>
-            <div class="communityDetails" style="width: 85%;">
+            <div class="communityDetails">
                 <h2>COMMUNITY & POPULATION</h2>
                 <div>
                     <label>COMMUNITY</label><br>
@@ -56,8 +56,6 @@
                         <option>All</option>
                     </select>
                 </div>
-            </div>
-            <div class="currentMonth">
                 <h2>CURRENT STATE</h2>
                 <div>
                     <label>CURRENT MONTH</label>
@@ -67,8 +65,6 @@
                     <label>CURRENT ACTIVELY HOMELESS NUMBER</label>
                     <input class="input" name="Current Actively Homeless" type="number" min="0" id="currentActivelyHomelessInput" required>
                 </div>
-            </div>
-            <div class="targetMonth">
                 <h2>TARGET STATE</h2>
                 <div>
                     <label>TARGET MONTH</label>
@@ -119,22 +115,24 @@
                 <button type="submit" id="submit-button">GO!</button>
                 <div class="loader" style="display: none;" id="loader"></div>
                 <p style="color:#a50a51; padding: 1%;" id="dataValidationWarning"></p>
-                <p style="display: block; font-size: 20px; font-weight: bold; color: #a50a51;" id="goalMet"></p>
             </div>
-
-            <div class="goal" style="display: none;" id="goal">
+            <div class="goalBackground"></div>
+            <div class="goal">
                 <h2 style="text-align: center; margin: 0px; background-color: #12b5ea; color: white; padding: 2%;">TARGET MOVE-IN DATES GOAL</h2>
                 <!-- if they are on track, no goal is needed, otherwise, display the goal -->
-                <p id="newGoal"> Increase monthly housing placements from<br>
-                    <span style="font-weight: bold; color:#12b5ea;" id="currentTargetHousingRate"></span> to
-                    <span style="font-weight: bold; color:#12b5ea;" id="goalTargetHousingRate"></span> people per month
-                </p>
-                <p style="font-size: 15px;" id="goalTargetExplanation">In order to reach your goal, you should set at least 
-                    <span style="font-weight: bold; color: #12b5ea;" id="goalTargetHousingRate2"></span> target move-in dates for the next 30 days.</span>
-                </p>
-                <p style="font-size: 15px; text-align: left;" id="goalAction"><b>How to take action: </b>Check your by-name list. Do you have enough target move-in dates set for this month? 
-                    If not, go back through the list with an open mind and look for creative ideas to move some clients through your housing process faster.
-                </p>
+                <p style="display: none; font-size: 28px;" id="goalMet"></p>
+                <div style="display: none;" id="goal">
+                    <p id="newGoal"> Increase monthly housing placements from<br>
+                        <span style="font-weight: bold; color:#12b5ea;" id="currentTargetHousingRate"></span> to
+                        <span style="font-weight: bold; color:#12b5ea;" id="goalTargetHousingRate"></span> people per month
+                    </p>
+                    <p style="font-size: 15px;" id="goalTargetExplanation">In order to reach your goal, you should set at least 
+                        <span style="font-weight: bold; color: #12b5ea;" id="goalTargetHousingRate2"></span> target move-in dates for the next 30 days.</span>
+                    </p>
+                    <p style="font-size: 15px; text-align: left;" id="goalAction"><b>How to take action: </b>Check your by-name list. Do you have enough target move-in dates set for this month? 
+                        If not, go back through the list with an open mind and look for creative ideas to move some clients through your housing process faster.
+                    </p>
+                </div>
             </div>
 
             <div class="goalExplanation" style="display: none;" id="goalExplanation">
@@ -164,7 +162,7 @@
                     </p>
                 </div>
                 <div class="paramAvgInflow">
-                    <img src="../assets/noun_homeless_3418188.png" style="width: 25%;">
+                    <img src="../assets/noun_homeless_3418188.png">
                     <p id="paramAvgInflow" style="font-size: 30px; font-weight: bold; color: #12b5ea; margin: 0%;"></p>
                     <p style="color: #12b5ea; margin-top: 0%;">average monthly total inflow</p>
                 </div>
@@ -211,12 +209,12 @@
                         past performance is not indicative of future performance, particularly for factors like Inflow and Other Outflow which are heavily impacted by external factors outside the control of your homelessness response system.
                 </div>
             </div>
+            <div class="iconCredit" style="font-size: small;">
+                <p>Icon credits: month by Adrien Coquet from the Noun Project, people by Ainsley Agatha from the Noun Project, homeless by ZakaUddin from the Noun Project,
+                    discard by priyanka from the Noun Project, Home by Gregor Cresnar from the Noun Project</p>
+            </div>
         </div>
     </form>
-    <div class="iconCredit" style="font-size: small;">
-        <p>Icon credits: month by Adrien Coquet from the Noun Project, people by Ainsley Agatha from the Noun Project, homeless by ZakaUddin from the Noun Project,
-            discard by priyanka from the Noun Project, Home by Gregor Cresnar from the Noun Project</p>
-    </div>
     <!-- Main JS script -->
     <script src="./main.js"></script>
 </body>

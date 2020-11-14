@@ -211,7 +211,7 @@ function submitData(formName){
                 document.getElementById("goalExplanation").style.display = "none";
                 document.getElementById("goalMet").style.display = "block";
                 document.getElementById("goalMet").innerHTML = "With your current housing placement rate of <b>" + 
-                avg3MoHoused + "</b> individuals housed each month, you are already on track to meet your goal. Keep it up!";
+                avg3MoHoused + "</b> individuals housed each month, you are already on track to meet your goal.<br>Keep it up!";
             } else {
                 document.getElementById("goalMet").style.display = "none";
                 document.getElementById("goal").style.display = "block";
