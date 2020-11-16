@@ -186,6 +186,7 @@ body {
     }
   img {
     width: 30%;
+    margin-bottom: -5%;
   }
   .helptext {
     font-size: 14px;
@@ -223,8 +224,8 @@ body {
   }
   label {
     font-size: 16px;
-    font-weight: bold;
-    color: rgb(156, 156, 156);
+    /* font-weight: bold; */
+    /* color: rgb(156, 156, 156); */
   }
   option {
     color:black;

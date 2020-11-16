@@ -180,7 +180,7 @@ function submitData(formName){
             document.getElementById("goalMet").style.display = "none";
             document.getElementById("goal").style.display = "none";
             document.getElementById("goalExplanation").style.display = "none";
-            document.getElementById("dataValidationWarning").innerHTML = "<b>ERROR: </b>Target Actively Homeless Number should be smaller than the Current Actively Homeless Number";
+            document.getElementById("dataValidationWarning").innerHTML = "<b>ERROR: </b>Target Actively Homeless Number should be smaller than the Current Actively Homeless Number.";
         } // Data validation - HP should be < Total Outflow 
         else if (outflow1 < hp1 || outflow2 < hp2 || outflow3 < hp3) {
             document.getElementById("goalMet").style.display = "none";
