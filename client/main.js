@@ -210,7 +210,8 @@ function submitData(formName){
                 document.getElementById("goal").style.display = "none";
                 document.getElementById("goalExplanation").style.display = "none";
                 document.getElementById("goalMet").style.display = "block";
-                document.getElementById("goalMet").innerHTML = "With your current housing placement rate of <b>" + 
+                document.getElementById("goalMet").innerHTML = "Assuming you maintain an <b>average total monthly inflow of " +
+                avg3MoInflow + "</b> and an <b>average other monthly outflow of " + avgOtherOutflow + "</b>,  with your current <b>housing placement rate of " + 
                 avg3MoHoused + "</b> individuals housed each month, you are already on track to meet your goal.<br>Keep it up!";
             } else {
                 document.getElementById("goalMet").style.display = "none";
