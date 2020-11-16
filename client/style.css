@@ -10,266 +10,288 @@ CS Brand Colors:
 */
 
 body {
-    font-family: "Raleway";
-    margin: 1% 5% 5% 2%;
+  font-family: "Raleway";
+  margin: 1% 5% 5% 2%;
+}
+h2 {
+  font-size: 28px;
+  font-weight: 800;
+}
+.gridContainer {
+  display: grid;
+  grid-gap: 0em 1em;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  background-color: #ececec;
+  color: #4e4e4e;
+  padding: 2% 2%;
+}
+  .pageHeader {
+    grid-column: 1/8;
+    grid-row: 1;
   }
-  h2 {
-    font-size: 28px;
-    font-weight: 800;
-  }
-  .gridContainer {
+  .goalInputs {
+    grid-column: 1/3;
+    grid-row: 2/11;
+    /* padding-right: 15%; */
     display: grid;
-    grid-gap: 0em 1em;
-    grid-template-columns: repeat(11, minmax(0, 1fr));
-    background-color: #ececec;
-    color: #4e4e4e;
-    padding: 2% 2%;
   }
-    .pageHeader {
-      grid-column: 1/8;
-      grid-row: 1;
-    }
-    .communityDetails {
-      grid-column: 1/3;
-      grid-row: 2/7;
-      /* padding-right: 15%; */
-    }
-    .dataHeader {
-      grid-column: 3/8;
-      grid-row: 2;
-      padding-left: 15%;
-    }
-    .monthLabel {
-      grid-column: 3/5;
-      grid-row: 3;
-      text-align: right;
-    }
-    .month1 {
-      grid-column: 5;
-      grid-row: 3;
-    }
-    .month2 {
-      grid-column: 6;
-      grid-row: 3;
-    }
-    .month3 {
-      grid-column: 7;
-      grid-row: 3;
-    }
-    .inflowLabel {
-      grid-column: 3/5;
-      grid-row: 4;
-      text-align: right;
-    }
-    .inflow1 {
-      grid-column: 5;
-      grid-row: 4;
-    }
-    .inflow2 {
-      grid-column: 6;
-      grid-row: 4;
-    }
-    .inflow3 {
-      grid-column: 7;
-      grid-row: 4;
-    }
-    .outflowLabel {
-      grid-column: 3/5;
-      grid-row: 5;
-      text-align: right;
-    }
-    .outflow1 {
-      grid-column: 5;
-      grid-row: 5;
-    }
-    .outflow2 {
-      grid-column: 6;
-      grid-row: 5;
-    }
-    .outflow3 {
-      grid-column: 7;
-      grid-row: 5;
-    }
-    .hpLabel {
-      grid-column: 3/5;
-      grid-row: 6;
-      text-align: right;
-    }
-    .housed1 {
-      grid-column: 5;
-      grid-row: 6;
-    }
-    .housed2 {
-      grid-column: 6;
-      grid-row: 6;
-    }
-    .housed3 {
-      grid-column: 7;
-      grid-row: 6;
-    }
-    .submitButton {
-      grid-column: 1/8;
-      grid-row: 7;
-      padding-top: 3%;
-    }
-    .goalBackground, .goal, .goalExplanation {
-      margin-left: 2%;
-      padding: 2%;
-    }
-    .goalBackground {
-      grid-column: 8/12;
-      grid-row: 1/9;
-      background-color:  rgba(184, 184, 184, 0.178);
-    }
-    .goal {
-      grid-column: 8/12;
-      grid-row: 1;
-      font-size: 28px;
-      text-align: center;
-    }
-    .goalExplanation {
-      grid-column: 8/12;
-      grid-row: 2/9;
-      display: grid;
-    }
-    .goalExplanationHeader {
-      grid-column: 1/4;
-      grid-row: 2;
-      text-align: center;
-    }
-    .paramNumMonths, .paramTargetNetChange, .paramAvgInflow, .paramAvgOutflow, .paramAvgHoused {
-      text-align: center;
-      padding: 1% 5% 10% 1%;
-    }
-    .explanation1, .explanation2, .explanation3 {
-      padding: 0% 2%;
-    }
-    .paramNumMonths {
-      grid-row: 3;
-    }
-    .paramTargetNetChange {
-      grid-row: 4;
-    }
-    .explanation1 {
-      grid-column: 2/4;
-      grid-row: 3/5;
-      padding-top: 10%;
-    }
-    .paramAvgInflow {
-      grid-row: 5;
-    }
-    .explanation2 {
-      grid-column: 2/4;
-      grid-row: 5;
-      margin-top: -10%;
-    }
-    .paramAvgOutflow {
-      grid-row: 6;
-      margin-top: -25%;
-    }
-    .paramAvgHoused {
-      grid-row: 7;
-      margin-top: -20%;
-    }
-    .explanation3 {
-      grid-column: 2/4;
-      grid-row: 6/8;
-    }
-    .note {
-      grid-column: 1/4;
-      grid-row: 8;
-      padding: 3% 1%;
-    }
-    .iconCredit {
-      grid-column: 1/8;
-      grid-row: 8;
-    }
-  img {
-    width: 30%;
-    margin-bottom: -5%;
+  .communityDetails {
+    grid-column: 1/3;
+    grid-row: 1;
   }
-  .helptext {
-    font-size: 14px;
-    color: #a50a51;
-    width: 90%;
-    margin: 1%;
+  .currentState {
+    grid-column: 1;
+    grid-row: 2;
+    margin-right: 10%;
   }
-  input {
-    width: 80%;
-    padding: 10px;
-    border: 2px solid #a50a51;
-    font-family: "Raleway";
-    font-weight: 900;
-    font-size: 16px;
-    color: grey;
+  .targetState {
+    grid-column: 2;
+    grid-row: 2;
+    margin-right: 10%;
   }
-  input:hover {
-    border: 2px solid #ffd2e6;
+  .dataHeader {
+    grid-column: 5/8;
+    grid-row: 2;
   }
-  select {
-    width: 85%;
-    padding: 10px;
-    border: 2px solid #a50a51;
-    font-family: "Raleway";
-    font-weight: 900;
-    font-size: 16px;
-    color: grey;
+  .monthLabel {
+    grid-column: 5/8;
+    grid-row: 3;
+    text-align: left;
   }
-  select:hover {
-    cursor: pointer;
-    border: 2px solid #ffd2e6;
+  .month1 {
+    grid-column: 5;
+    grid-row: 4;
   }
-  input, select {
-    margin: 0px 0px 10px 0px;
+  .month2 {
+    grid-column: 6;
+    grid-row: 4;
   }
-  label {
-    font-size: 16px;
-    /* font-weight: bold; */
-    /* color: rgb(156, 156, 156); */
+  .month3 {
+    grid-column: 7;
+    grid-row: 4;
   }
-  option {
-    color:black;
+  .inflowLabel {
+    grid-column: 5/8;
+    grid-row: 5;
+    text-align: left;
   }
-  button {
-    width: 20%;
-    padding: 5px;
-    color: white;
-    background-color: #a50a51;
-    border: 2px solid white;
-    font-family: "Raleway";
-    font-size: 20px;
-    font-weight: 900;
+  .inflow1 {
+    grid-column: 5;
+    grid-row: 6;
   }
-  button:hover {
-    background-color: white;
-    color: #a50a51;
-    border: 2px solid #a50a51;
-    cursor: pointer;
+  .inflow2 {
+    grid-column: 6;
+    grid-row: 6;
   }
-  #button-wrapper {
-    align-items: center;
-    justify-content: center;
+  .inflow3 {
+    grid-column: 7;
+    grid-row: 6;
   }
-  .loader {
-    border: 7px solid #d4d4d4; /* Light grey */
-    border-top: 7px solid #a50a51; /* Blue */
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 2s linear infinite;
-    vertical-align: -10px;
+  .outflowLabel {
+    grid-column: 5/8;
+    grid-row: 7;
+    text-align: left;
+  }
+  .outflow1 {
+    grid-column: 5;
+    grid-row: 8;
+  }
+  .outflow2 {
+    grid-column: 6;
+    grid-row: 8;
+  }
+  .outflow3 {
+    grid-column: 7;
+    grid-row: 8;
+  }
+  .hpLabel {
+    grid-column: 5/8;
+    grid-row: 9;
+    text-align: left;
+  }
+  .housed1 {
+    grid-column: 5;
+    grid-row: 10;
+  }
+  .housed2 {
+    grid-column: 6;
+    grid-row: 10;
+  }
+  .housed3 {
+    grid-column: 7;
+    grid-row: 10;
+  }
+  .submitButton {
+    grid-column: 1/8;
+    grid-row: 11;
+    padding-top: 3%;
+  }
+  .goalBackground, .goal, .goalExplanation {
     margin-left: 2%;
-  }  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    padding: 2%;
   }
-  
-  
-  /* @media only screen and (max-width: 600px) {
-    .gridContainer {
-      margin: 1%;
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-  } */
+  .goalBackground {
+    grid-column: 1/8;
+    grid-row: 12/14;
+    background-color:  rgba(184, 184, 184, 0.178);
+  }
+  .goal {
+    grid-column: 1/8;
+    grid-row: 12;
+    font-size: 28px;
+    text-align: center;
+  }
+  .goalExplanation {
+    grid-column: 1/8;
+    grid-row: 13;
+    display: grid;
+  }
+  .goalExplanationHeader {
+    grid-column: 1/8;
+    grid-row: 1;
+    text-align: center;
+  }
+  .paramNumMonths, .paramTargetNetChange, .paramAvgInflow, .paramAvgOutflow, .paramAvgHoused {
+    text-align: center;
+    padding: 1% 5% 10% 1%;
+  }
+  .explanation1, .explanation2, .explanation3 {
+    padding: 0% 2% 0% 5%;
+  }
+  .paramNumMonths {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .paramTargetNetChange {
+    grid-column: 2;
+    grid-row: 2;
+    border-right: thin solid rgb(209, 209, 209);
+  }
+  .explanation1 {
+    grid-column: 1/3;
+    grid-row: 3;
+    border-right: thin solid rgb(209, 209, 209);
+  }
+  .paramAvgInflow {
+    grid-column: 3/6;
+    grid-row: 2;
+    /* width: 70%; */
+    border-right: thin solid rgb(209, 209, 209);
+  }
+  .explanation2 {
+    grid-column: 3/6;
+    grid-row: 3;
+    border-right: thin solid rgb(209, 209, 209);
+  }
+  .paramAvgOutflow {
+    grid-column: 6;
+    grid-row: 2;
+    margin-top: -25%;
+  }
+  .paramAvgHoused {
+    grid-column: 7;
+    grid-row: 2;
+    margin-top: -20%;
+  }
+  .explanation3 {
+    grid-column: 6/8;
+    grid-row: 3;
+  }
+  .note {
+    grid-column: 1/8;
+    grid-row: 4;
+    padding: 3% 1%;
+  }
+  .iconCredit {
+    grid-column: 1/8;
+    grid-row: 15;
+  }
+img {
+  width: 30%;
+  margin-bottom: -5%;
+}
+.helptext {
+  font-size: 14px;
+  color: #a50a51;
+  width: 90%;
+  margin: 1%;
+}
+input {
+  width: 80%;
+  padding: 10px;
+  border: 2px solid #a50a51;
+  font-family: "Raleway";
+  font-weight: 900;
+  font-size: 16px;
+  color: grey;
+}
+input:hover {
+  border: 2px solid #ffd2e6;
+}
+select {
+  width: 85%;
+  padding: 10px;
+  border: 2px solid #a50a51;
+  font-family: "Raleway";
+  font-weight: 900;
+  font-size: 16px;
+  color: grey;
+}
+select:hover {
+  cursor: pointer;
+  border: 2px solid #ffd2e6;
+}
+input, select {
+  margin: 0px 0px 10px 0px;
+}
+label {
+  font-size: 16px;
+  /* font-weight: bold; */
+  /* color: rgb(156, 156, 156); */
+}
+option {
+  color:black;
+}
+button {
+  width: 20%;
+  padding: 5px;
+  color: white;
+  background-color: #a50a51;
+  border: 2px solid white;
+  font-family: "Raleway";
+  font-size: 20px;
+  font-weight: 900;
+}
+button:hover {
+  background-color: white;
+  color: #a50a51;
+  border: 2px solid #a50a51;
+  cursor: pointer;
+}
+#button-wrapper {
+  align-items: center;
+  justify-content: center;
+}
+.loader {
+  border: 7px solid #d4d4d4; /* Light grey */
+  border-top: 7px solid #a50a51; /* Blue */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  vertical-align: -10px;
+  margin-left: 2%;
+}  
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* @media only screen and (max-width: 600px) {
+  .gridContainer {
+    margin: 1%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+} */

@@ -16,7 +16,7 @@
     <form name="submitToGoogleSheet" id="formInput">
         <div class="gridContainer">
             <div class="pageHeader">
-                <h1 style="font-size:40px; display: inline-block;">30 Day Target Move-In Date Calculator</h1>
+                <!-- <h1 style="font-size:40px; display: inline-block;">30 Day Target Move-In Date Calculator</h1> -->
                 <p style="font-size: 16px;"> Setting a Target Move-In Date Goal can bring new focus and clarity to the way that you work with clients every week. 
                     At the end of your case conferencing meeting, consistently check how many target move-in dates your team has set for the next 30 days. Are you on track to 
                     house enough people to reduce your by-name list? This goal calculator will help you know.
@@ -30,49 +30,55 @@
                     Reducing your by-name list requires accelerating your housing placements, yes, and also taking action to intentionally reduce people entering your system.
                 </p>
             </div>
-            <div class="communityDetails">
-                <h2>COMMUNITY & POPULATION</h2>
-                <div>
-                    <label>COMMUNITY</label><br>
-                    <select class="input" name="Community" id="communityDropdown" required>
-                        <option value="" selected disabled hidden>Select a Community</option>
-                    </select>
+            <div class="goalInputs">
+                <div class="communityDetails">
+                    <h2>COMMUNITY & POPULATION</h2>
+                    <div>
+                        <label>COMMUNITY</label><br>
+                        <select class="input" name="Community" id="communityDropdown" required>
+                            <option value="" selected disabled hidden>Select a Community</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>POPULATION</label><br>
+                        <select class="input" name="Population" id="populationDropdown" required>
+                            <option value="" selected disabled hidden>Select a Population</option>
+                            <option>Single Adults</option>
+                            <option>Youth</option>
+                            <option>Families</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>SUBPOPULATION</label><br>
+                        <select class="input" name="Subpopulation" id="subpopulationDropdown" required>
+                            <option value="" selected disabled hidden>Select a Subpopulation</option>
+                            <option>Veteran</option>
+                            <option>Chronic</option>
+                            <option>All</option>
+                        </select>
+                    </div>
                 </div>
-                <div>
-                    <label>POPULATION</label><br>
-                    <select class="input" name="Population" id="populationDropdown" required>
-                        <option value="" selected disabled hidden>Select a Population</option>
-                        <option>Single Adults</option>
-                        <option>Youth</option>
-                        <option>Families</option>
-                    </select>
+                <div class="currentState">
+                    <h2>CURRENT STATE</h2>
+                    <div>
+                        <label>CURRENT MONTH</label>
+                        <input type="month" class="input" name="Current Month" id="currentMonth" required>
+                    </div>
+                    <div>
+                        <label>CURRENT ACTIVELY HOMELESS NUMBER</label>
+                        <input class="input" name="Current Actively Homeless" type="number" min="0" id="currentActivelyHomelessInput" required>
+                    </div>
                 </div>
-                <div>
-                    <label>SUBPOPULATION</label><br>
-                    <select class="input" name="Subpopulation" id="subpopulationDropdown" required>
-                        <option value="" selected disabled hidden>Select a Subpopulation</option>
-                        <option>Veteran</option>
-                        <option>Chronic</option>
-                        <option>All</option>
-                    </select>
-                </div>
-                <h2>CURRENT STATE</h2>
-                <div>
-                    <label>CURRENT MONTH</label>
-                    <input type="month" class="input" name="Current Month" id="currentMonth" required>
-                </div>
-                <div>
-                    <label>CURRENT ACTIVELY HOMELESS NUMBER</label>
-                    <input class="input" name="Current Actively Homeless" type="number" min="0" id="currentActivelyHomelessInput" required>
-                </div>
-                <h2>TARGET STATE</h2>
-                <div>
-                    <label>TARGET MONTH</label>
-                    <input type="month" class="input" name="Target Month" id="targetMonthDropdown" required>
-                </div>
-                <div>
-                    <label>TARGET ACTIVELY HOMELESS NUMBER</label>
-                    <input class="input" name="Target Actively Homeless" type="number" min="0" id="targetActivelyHomelessInput" required>
+                <div class="targetState">
+                    <h2>TARGET STATE</h2>
+                    <div>
+                        <label>TARGET MONTH</label>
+                        <input type="month" class="input" name="Target Month" id="targetMonthDropdown" required>
+                    </div>
+                    <div>
+                        <label>TARGET ACTIVELY HOMELESS NUMBER</label>
+                        <input class="input" name="Target Actively Homeless" type="number" min="0" id="targetActivelyHomelessInput" required>
+                    </div>
                 </div>
             </div>
             <div class="dataHeader">
@@ -85,11 +91,11 @@
             </div>
             <div class="inflowLabel">
                 <label>TOTAL INFLOW</label>
-                <div class="helptext" style="width: 100%;">Newly Identified +<br>Returned from Housing + <br>Returned from Inactive</div>
+                <div class="helptext" style="width: 100%;">Newly Identified + Returned from Housing + Returned from Inactive</div>
             </div>
             <div class="outflowLabel">
                 <label>TOTAL OUTFLOW</label>
-                <div class="helptext" style="width: 100%;">Housing Placements +<br>Moved to Inactive +<br>No Longer Meets Population Criteria</div>
+                <div class="helptext" style="width: 100%;">Housing Placements + Moved to Inactive + No Longer Meets Population Criteria</div>
             </div>
             <div class="hpLabel">
                 <label>HOUSING PLACEMENTS</label>
@@ -121,7 +127,7 @@
                 <h2 style="text-align: center; margin: 0px; background-color: #12b5ea; color: white; padding: 2%;">TARGET MOVE-IN DATES GOAL</h2>
                 <!-- if they are on track, no goal is needed, otherwise, display the goal -->
                 <p style="display: none; font-size: 28px;" id="goalMet"></p>
-                <div style="display: none;" id="goal">
+                <div style="display: block;" id="goal">
                     <p id="newGoal"> Increase monthly housing placements from<br>
                         <span style="font-weight: bold; color:#12b5ea;" id="currentTargetHousingRate"></span> to
                         <span style="font-weight: bold; color:#12b5ea;" id="goalTargetHousingRate"></span> people per month
@@ -135,7 +141,7 @@
                 </div>
             </div>
 
-            <div class="goalExplanation" style="display: none;" id="goalExplanation">
+            <div class="goalExplanation" style="display: grid;" id="goalExplanation">
                 <div class="goalExplanationHeader">
                     <h2 style="color: #4e4e4e;">WHERE DOES THIS NUMBER COME FROM?</h2>
                 </div>
