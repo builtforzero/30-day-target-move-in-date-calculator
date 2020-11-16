@@ -30,9 +30,9 @@ body {
       grid-row: 1;
     }
     .communityDetails {
-      grid-column: 1/4;
+      grid-column: 1/3;
       grid-row: 2/7;
-      padding-right: 15%;
+      /* padding-right: 15%; */
     }
     .dataHeader {
       grid-column: 3/8;
