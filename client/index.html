@@ -8,6 +8,8 @@
     <!-- CS Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,900;1,400;1,900&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Asap Condensed:ital,wght@0,400;0,900;1,400;1,900&display=swap"
+    rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="../assets/favicon.png" type="image/x-icon">
 </head>
@@ -15,21 +17,21 @@
 <body>
     <form name="submitToGoogleSheet" id="formInput">
         <div class="gridContainer">
-            <div class="pageHeader">
-                <!-- <h1 style="font-size:40px; display: inline-block;">30 Day Target Move-In Date Calculator</h1> -->
+            <!-- <div class="pageHeader">
+                <h1 style="font-size:40px; display: inline-block;">30 Day Target Move-In Date Calculator</h1>
                 <p style="font-size: 16px;"> Setting a Target Move-In Date Goal can bring new focus and clarity to the way that you work with clients every week. 
                     At the end of your case conferencing meeting, consistently check how many target move-in dates your team has set for the next 30 days. Are you on track to 
-                    house enough people to reduce your by-name list? This goal calculator will help you know.
+                    house enough people to reduce your actively homeless number? This goal calculator will help you know.
                 </p>
                 <p style="background-color: rgba(184, 184, 184, 0.178); padding: 1%;">
-                    <b>HOW TO USE THIS TOOL: </b>It takes a lot of work to reduce your by-name list. This tool helps you focus on just one part, your housing placements. 
+                    <b>HOW TO USE THIS TOOL: </b>It takes a lot of work to reduce your actively homeless number. This tool helps you focus on just one part, your housing placements. 
                     Use the <a href="https://docs.google.com/document/d/11QEc_Yd7us2gqvrVhqg1Y2LvnraLX3j8FyFzgTvXo3s/edit">Target Move-In Dates Guide</a> along with this tool to ensure that your team is on track to house people at your desired rate.
                     <br><br>
                     This tool helps your case conferencing team set target move-in dates so that you can house people faster; it is not a forecasting tool. 
                     If your inflow or outflow rates change over the coming months, your actively homeless count will fluctuate. Give attention to your entire system! 
-                    Reducing your by-name list requires accelerating your housing placements, yes, and also taking action to intentionally reduce people entering your system.
+                    Reducing your actively homeless number requires accelerating your housing placements, yes, and also taking action to intentionally reduce people entering your system.
                 </p>
-            </div>
+            </div> -->
             <div class="goalInputs">
                 <div class="communityDetails">
                     <h2>COMMUNITY & POPULATION</h2>
@@ -128,11 +130,11 @@
                 <p style="display: none; font-size: 24px; padding: 2% 10%; text-align: left;" id="goalMet"></p>
                 <div style="display: none;" id="goal">
                     <p id="newGoal"> Increase monthly housing placements from<br>
-                        <span style="font-weight: bold; color:#12b5ea;" id="currentTargetHousingRate"></span> to
-                        <span style="font-weight: bold; color:#12b5ea;" id="goalTargetHousingRate"></span> people per month
+                        <span style="font-family: 'Asap Condensed'; font-weight: bold; color:#0494CB;" id="currentTargetHousingRate"></span> to
+                        <span style="font-family: 'Asap Condensed'; font-weight: bold; color:#0494CB;" id="goalTargetHousingRate"></span> people per month
                     </p>
                     <p style="font-size: 15px;" id="goalTargetExplanation">In order to reach your goal, you should set at least 
-                        <span style="font-weight: bold; color: #12b5ea;" id="goalTargetHousingRate2"></span> target move-in dates for the next 30 days.</span>
+                        <span style="font-family: 'Asap Condensed'; font-weight: bold; color: #0494CB;" id="goalTargetHousingRate2"></span> target move-in dates for the next 30 days.</span>
                     </p>
                     <p style="font-size: 15px; text-align: left;" id="goalAction"><b>How to take action: </b>Check your by-name list. Do you have enough target move-in dates set for this month? 
                         If not, go back through the list with an open mind and look for creative ideas to move some clients through your housing process faster.
@@ -146,67 +148,67 @@
                 </div>
                 <div class="paramNumMonths">
                     <img src="../assets/noun_month_3202614.png">
-                    <p id="paramNumMonths" style="font-size: 30px; font-weight: bold; color: #12b5ea; margin: 0%;"></p>
-                    <p style="color: #12b5ea; margin-top: 0%;">month(s) to reach your target</p>
+                    <p id="paramNumMonths" style="font-size: 30px; margin: 0%;"></p>
+                    <p style="margin-top: 0%;">month(s) to reach your target</p>
                 </div>
                 <div class="paramTargetNetChange">
                     <img src="../assets/noun_people_3457286.png">
-                    <p id="paramTargetNetChange" style="font-size: 30px; font-weight: bold; color: #12b5ea; margin: 0%;"></p>
-                    <p style="color: #12b5ea; margin-top: 0%;">person reduction</p>
+                    <p id="paramTargetNetChange" style="font-size: 30px; margin: 0%;"></p>
+                    <p style="margin-top: 0%;">person reduction</p>
                 </div>
                 <div class="explanation1">
                     <p >To reduce your active list by
-                        <span style="font-size: 20px; font-weight:bold; color:#12b5ea;" id="explanationTargetNetChange"></span> people in 
-                        <span style="font-size: 20px; font-weight:bold; color:#12b5ea;" id="explanationNumMonths"></span> month(s), you will need to reduce your Actively Homeless Number by 
-                        <span style="font-size: 20px; font-weight:bold; color:#12b5ea;" id="explanationTargetNetChangeRate"></span> people per month. 
+                        <span style="font-weight:bold; color:#0494CB;" id="explanationTargetNetChange"></span> people in 
+                        <span style="font-weight:bold; color:#0494CB;" id="explanationNumMonths"></span> month(s), you will need to reduce your Actively Homeless Number by 
+                        <span style="font-weight:bold; color:#0494CB;" id="explanationTargetNetChangeRate"></span> people per month. 
                     </p>
-                    <p style="color:#12b5ea;">
-                        <span style="font-size: 20px; font-weight:bold;" id="equationTargetNetChange"></span> people / 
-                        <span style="font-size: 20px; font-weight:bold;" id="equationNumMonths"></span> month(s) = 
-                        <span style="font-size: 20px; font-weight:bold;" id="equationTargetNetChangeRate"></span> person monthly reduction
+                    <p style="color:#0494CB;">
+                        <span style="font-weight:bold;" id="equationTargetNetChange"></span> people / 
+                        <span style="font-weight:bold;" id="equationNumMonths"></span> month(s) = 
+                        <span style="font-weight:bold;" id="equationTargetNetChangeRate"></span> person monthly reduction
                     </p>
                 </div>
                 <div class="paramAvgInflow">
                     <img src="../assets/noun_homeless_3418188.png">
-                    <p id="paramAvgInflow" style="font-size: 30px; font-weight: bold; color: #12b5ea; margin: 0%;"></p>
-                    <p style="color: #12b5ea; margin-top: 0%;">average total monthly inflow</p>
+                    <p id="paramAvgInflow" style="font-size: 30px; margin: 0%;"></p>
+                    <p style="margin-top: 0%;">average total monthly inflow</p>
                 </div>
                 <div class="explanation2" id="explanation2">
                     <p>Assuming 
-                        <span style="font-size: 20px; font-weight:bold; color: #12b5ea;" id="explanationAvgInflow"></span> people join your list each month, you will need  
-                        <span style="font-size: 20px; font-weight:bold; color:#12b5ea" id="explanationTargetOutflowRate"></span> people to move off your list each month. 
+                        <span style="font-weight:bold; color: #0494CB;" id="explanationAvgInflow"></span> people join your list each month, you will need  
+                        <span style="font-weight:bold; color:#0494CB;" id="explanationTargetOutflowRate"></span> people to move off your list each month. 
                     </p>
-                    <p style="color:#12b5ea;">
-                        <span style="font-size: 20px; font-weight:bold;" id="equationTargetNetChangeRate2"></span> person monthly reduction + 
-                        <span style="font-size: 20px; font-weight:bold;" id="equationAvgInflow"></span> person monthly inflow = 
-                        <span style="font-size: 20px; font-weight:bold;" id="equationTargetOutflowRate"></span> person monthly outflow needed
+                    <p style="color:#0494CB;">
+                        <span style="font-weight:bold;" id="equationTargetNetChangeRate2"></span> person monthly reduction + 
+                        <span style="font-weight:bold;" id="equationAvgInflow"></span> person monthly inflow = 
+                        <span style="font-weight:bold;" id="equationTargetOutflowRate"></span> person monthly outflow needed
                     </p>
                 </div>
                 <div class="paramAvgOutflow">
                     <img src="../assets/noun_exit_2590544.png">
-                    <p id="paramAvgOutflow" style="font-size: 30px; font-weight: bold; color: #12b5ea; margin: 0%;"></p>
-                    <p style="color: #12b5ea; margin-top: 0%;">average total monthly outflow</p>
+                    <p id="paramAvgOutflow" style="font-size: 30px; margin: 0%;"></p>
+                    <p style="margin-top: 0%;">average total monthly outflow</p>
                 </div>
                 <div class="paramAvgHoused">
                     <img src="../assets/noun_Home_680045.png">
-                    <p id="paramAvgHoused" style="font-size: 30px; font-weight: bold; color: #12b5ea; margin: 0%;"></p>
-                    <p style="color: #12b5ea; margin-top: 0%;">average monthly housing placements</p>
+                    <p id="paramAvgHoused" style="font-size: 30px; margin: 0%;"></p>
+                    <p style="margin-top: 0%;">average monthly housing placements</p>
                 </div>
                 <div class="explanation3" id="explanation3">
                     <p>Assuming 
-                        <span style="font-size: 20px; font-weight:bold; color: #12b5ea;" id="explanationAvgTotalOutflow"></span> people are currently moving off the list each month, 
-                        <span style="font-size: 20px; font-weight:bold; color: #12b5ea;" id="explanationAvgHoused"></span> due to moving into housing and 
-                        <span style="font-size: 20px; font-weight:bold; color: #12b5ea;" id="explanationOtherOutflow"></span> due to other outflow, you can increase your monthly housing placements to 
-                        <span style="font-size: 20px; font-weight:bold; color: #12b5ea;" id="explanationTargetHousingRate"></span> people per month to reach your goal. 
+                        <span style="font-weight:bold; color: #0494CB;" id="explanationAvgTotalOutflow"></span> people are currently moving off the list each month, 
+                        <span style="font-weight:bold; color: #0494CB;" id="explanationAvgHoused"></span> due to moving into housing and 
+                        <span style="font-weight:bold; color: #0494CB;" id="explanationOtherOutflow"></span> due to other outflow, you can increase your monthly housing placements to 
+                        <span style="font-weight:bold; color: #0494CB;" id="explanationTargetHousingRate"></span> people per month to reach your goal. 
                     </p>
-                    <p style="color:#12b5ea;">
-                        <span style="font-size: 20px; font-weight: bold; color: #12b5ea;" id="equationAvgTotalOutflow"></span> person total outflow - 
-                        <span style="font-size: 20px; font-weight: bold; color: #12b5ea;" id="equationAvgHoused"></span> current monthly housing placements = 
-                        <span style="font-size: 20px; font-weight: bold; color: #12b5ea" id="equationOtherOutflow";></span> person monthly other outflow
+                    <p style="color:#0494CB;">
+                        <span style="font-weight: bold;" id="equationAvgTotalOutflow"></span> person total outflow - 
+                        <span style="font-weight: bold;" id="equationAvgHoused"></span> current monthly housing placements = 
+                        <span style="font-weight: bold;" id="equationOtherOutflow";></span> person monthly other outflow
                         <br><br>
-                        <span style="font-size: 20px; font-weight:bold; color:#12b5ea;" id="equationTargetOutflowRate2"></span> person monthly outflow needed - 
-                        <span style="font-size: 20px; font-weight:bold; color: #12b5ea;" id="equationOtherOutflow2"></span> person monthly other outflow = 
-                        <span style="font-size: 20px; font-weight:bold; color:#12b5ea;" id="equationTargetHousingRate"></span> monthly housing placements needed
+                        <span style="font-weight:bold;" id="equationTargetOutflowRate2"></span> person monthly outflow needed - 
+                        <span style="font-weight:bold;" id="equationOtherOutflow2"></span> person monthly other outflow = 
+                        <span style="font-weight:bold;" id="equationTargetHousingRate"></span> monthly housing placements needed
                     </p>
                 </div>
                 <div class="note" style="font-size: 15px;">

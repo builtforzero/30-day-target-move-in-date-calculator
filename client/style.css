@@ -14,6 +14,7 @@ body {
   margin: 1% 5% 5% 2%;
 }
 h2 {
+  font-family: "Asap Condensed";
   font-size: 26px;
   font-weight: 800;
 }
@@ -134,7 +135,7 @@ h2 {
     grid-row: 12;
     font-size: 26px;
     text-align: center;
-    border: thick solid #12b5ea;
+    border: thick solid #0494CB;
     margin-bottom: 3%;
   }
   .goalExplanation {
@@ -148,7 +149,10 @@ h2 {
     text-align: center;
   }
   .paramNumMonths, .paramTargetNetChange, .paramAvgInflow, .paramAvgOutflow, .paramAvgHoused {
+    font-family: "Asap Condensed";
     text-align: center;
+    font-weight: bold; 
+    color: #0494CB; 
     padding: 0% 3%;
   }
   .explanation1, .explanation2, .explanation3 {
@@ -172,6 +176,7 @@ h2 {
   .paramAvgInflow {
     grid-column: 4;
     grid-row: 2;
+    padding-right: 5%;
     border-right: thin solid rgb(209, 209, 209);
   }
   .explanation2 {
@@ -201,7 +206,7 @@ h2 {
     grid-row: 14;
   }
 img {
-  width: 40%;
+  height: 80px;
 }
 .helptext {
   font-size: 14px;
@@ -210,7 +215,7 @@ img {
   margin: 1%;
 }
 input {
-  width: 80%;
+  width: 90%;
 }
 input:hover {
   border: 2px solid #ffd2e6;
@@ -228,7 +233,7 @@ input, select {
   border: 2px solid #a50a51;
   font-family: "Raleway";
   font-weight: 900;
-  font-size: 16px;
+  font-size: 15px;
   color: grey;
 }
 label {
