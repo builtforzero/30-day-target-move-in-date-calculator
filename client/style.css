@@ -49,75 +49,75 @@ h2 {
     margin-right: 10%;
   }
   .dataHeader {
-    grid-column: 4/8;
+    grid-column: 5/8;
     grid-row: 2;
   }
   .monthLabel {
-    grid-column: 4/8;
+    grid-column: 5/8;
     grid-row: 3;
     text-align: left;
   }
   .month1 {
-    grid-column: 4;
-    grid-row: 4;
-  }
-  .month2 {
     grid-column: 5;
     grid-row: 4;
   }
-  .month3 {
+  .month2 {
     grid-column: 6;
     grid-row: 4;
   }
+  .month3 {
+    grid-column: 7;
+    grid-row: 4;
+  }
   .inflowLabel {
-    grid-column: 4/8;
+    grid-column: 5/8;
     grid-row: 5;
     text-align: left;
   }
   .inflow1 {
-    grid-column: 4;
-    grid-row: 6;
-  }
-  .inflow2 {
     grid-column: 5;
     grid-row: 6;
   }
-  .inflow3 {
+  .inflow2 {
     grid-column: 6;
     grid-row: 6;
   }
+  .inflow3 {
+    grid-column: 7;
+    grid-row: 6;
+  }
   .outflowLabel {
-    grid-column: 4/8;
+    grid-column: 5/8;
     grid-row: 7;
     text-align: left;
   }
   .outflow1 {
-    grid-column: 4;
-    grid-row: 8;
-  }
-  .outflow2 {
     grid-column: 5;
     grid-row: 8;
   }
-  .outflow3 {
+  .outflow2 {
     grid-column: 6;
     grid-row: 8;
   }
+  .outflow3 {
+    grid-column: 7;
+    grid-row: 8;
+  }
   .hpLabel {
-    grid-column: 4/8;
+    grid-column: 5/8;
     grid-row: 9;
     text-align: left;
   }
   .housed1 {
-    grid-column: 4;
-    grid-row: 10;
-  }
-  .housed2 {
     grid-column: 5;
     grid-row: 10;
   }
-  .housed3 {
+  .housed2 {
     grid-column: 6;
+    grid-row: 10;
+  }
+  .housed3 {
+    grid-column: 7;
     grid-row: 10;
   }
   .submitButton {
