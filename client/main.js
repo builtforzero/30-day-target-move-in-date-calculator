@@ -214,10 +214,10 @@ function submitData(formName){
                 document.getElementById("goalMet").style.display = "block";
                 document.getElementById("goal").style.display = "none";
                 document.getElementById("goalExplanation").style.display = "none";
-                document.getElementById("goalMet").innerHTML = "If you maintain:<br>&nbsp&nbsp your average total monthly inflow of <b>" + 
+                document.getElementById("goalMet").innerHTML = "If you maintain:<br><br>&nbsp&nbsp your average total monthly inflow of <b>" + 
                 avg3MoInflow + "</b> individuals,<br>&nbsp&nbsp your average other monthly outflow of <b>" + 
                 avgOtherOutflow + "</b> individuals,<br>&nbsp&nbsp and your monthly housing placement rate of <b>" + 
-                avg3MoHoused + "</b> individuals,<br><b>you will be on track to meet your goal.</b>  Keep it up!" + 
+                avg3MoHoused + "</b> individuals,<br><br><b>you will be on track to meet your goal.</b>  Keep it up!" + 
                 "<br><br>Consider adding a few extra housing placements and see how fast you can reduce!";
             } else {
                 document.getElementById("goalBox").style.display = "block";
