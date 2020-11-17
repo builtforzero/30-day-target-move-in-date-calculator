@@ -83,7 +83,7 @@
             </div>
             <div class="dataHeader">
                 <h2>YOUR MOST RECENT 3 MONTHS OF DATA</h2>                    
-                <button type="button" style="width: 35%; margin-right: 2%;" id="autofill-button">AUTOFILL DATA</button>
+                <button type="button" style="width: 45%; margin-right: 2%;" id="autofill-button">AUTOFILL DATA</button>
                 <p style="color:#a50a51; display: inline-block;" id="autofillError"></p>
             </div>
             <div class="monthLabel">
@@ -122,11 +122,10 @@
                 <div class="loader" style="display: none;" id="loader"></div>
                 <p style="color:#a50a51; padding: 1%;" id="dataValidationWarning"></p>
             </div>
-            <div class="goalBackground"></div>
-            <div class="goal">
-                <h2 style="text-align: center; margin: 0px; background-color: #12b5ea; color: white; padding: 2%;">TARGET MOVE-IN DATES GOAL</h2>
+            <div class="goal" style="display: none;" id="goalBox">
+                <h2 style="text-align: center; margin: -1%; padding: 2%;">TARGET MOVE-IN DATES GOAL</h2>
                 <!-- if they are on track, no goal is needed, otherwise, display the goal -->
-                <p style="display: none; font-size: 28px;" id="goalMet"></p>
+                <p style="display: none; font-size: 24px; padding: 2% 10%; text-align: left;" id="goalMet"></p>
                 <div style="display: none;" id="goal">
                     <p id="newGoal"> Increase monthly housing placements from<br>
                         <span style="font-weight: bold; color:#12b5ea;" id="currentTargetHousingRate"></span> to
@@ -173,8 +172,6 @@
                     <p style="color: #12b5ea; margin-top: 0%;">average total monthly inflow</p>
                 </div>
                 <div class="explanation2" id="explanation2">
-                    <hr style="margin-left: -30%;">
-                    <br>
                     <p>Assuming 
                         <span style="font-size: 20px; font-weight:bold; color: #12b5ea;" id="explanationAvgInflow"></span> people join your list each month, you will need  
                         <span style="font-size: 20px; font-weight:bold; color:#12b5ea" id="explanationTargetOutflowRate"></span> people to move off your list each month. 
@@ -186,18 +183,16 @@
                     </p>
                 </div>
                 <div class="paramAvgOutflow">
-                    <img src="../assets/noun_exit_2590544.png" style="margin-top: 30%;">
+                    <img src="../assets/noun_exit_2590544.png">
                     <p id="paramAvgOutflow" style="font-size: 30px; font-weight: bold; color: #12b5ea; margin: 0%;"></p>
                     <p style="color: #12b5ea; margin-top: 0%;">average total monthly outflow</p>
                 </div>
                 <div class="paramAvgHoused">
-                    <img src="../assets/noun_Home_680045.png" style="margin-top: 25%;">
+                    <img src="../assets/noun_Home_680045.png">
                     <p id="paramAvgHoused" style="font-size: 30px; font-weight: bold; color: #12b5ea; margin: 0%;"></p>
                     <p style="color: #12b5ea; margin-top: 0%;">average monthly housing placements</p>
                 </div>
                 <div class="explanation3" id="explanation3">
-                    <hr style="margin-left: -30%;">
-                    <br><br><br>
                     <p>Assuming 
                         <span style="font-size: 20px; font-weight:bold; color: #12b5ea;" id="explanationAvgTotalOutflow"></span> people are currently moving off the list each month, 
                         <span style="font-size: 20px; font-weight:bold; color: #12b5ea;" id="explanationAvgHoused"></span> due to moving into housing and 

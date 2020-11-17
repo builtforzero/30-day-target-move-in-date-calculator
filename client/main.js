@@ -177,18 +177,21 @@ function submitData(formName){
 
         // Data validation - Current AH should be > Target AH 
         if (targetNetChange <= 0) {
+            document.getElementById("goalBox").style.display = "none";
             document.getElementById("goalMet").style.display = "none";
             document.getElementById("goal").style.display = "none";
             document.getElementById("goalExplanation").style.display = "none";
             document.getElementById("dataValidationWarning").innerHTML = "<b>ERROR: </b>Target Actively Homeless Number should be smaller than the Current Actively Homeless Number.";
         } // Data validation - HP should be < Total Outflow 
         else if (outflow1 < hp1 || outflow2 < hp2 || outflow3 < hp3) {
+            document.getElementById("goalBox").style.display = "none";
             document.getElementById("goalMet").style.display = "none";
             document.getElementById("goal").style.display = "none";
             document.getElementById("goalExplanation").style.display = "none";
             document.getElementById("dataValidationWarning").innerHTML = "<b>ERROR: </b>Housing Placement numbers must be smaller than the Total Outflow numbers.";
         }
         else if (timeframe <= 0) {
+            document.getElementById("goalBox").style.display = "none";
             document.getElementById("goalMet").style.display = "none";
             document.getElementById("goal").style.display = "none";
             document.getElementById("goalExplanation").style.display = "none";
@@ -207,13 +210,16 @@ function submitData(formName){
 
             // Display the goal and explanation
             if (targetHousingRate <= avg3MoHoused) {
+                document.getElementById("goalBox").style.display = "block";
+                document.getElementById("goalMet").style.display = "block";
                 document.getElementById("goal").style.display = "none";
                 document.getElementById("goalExplanation").style.display = "none";
-                document.getElementById("goalMet").style.display = "block";
-                document.getElementById("goalMet").innerHTML = "Assuming you maintain an <b>average total monthly inflow of " +
-                avg3MoInflow + "</b> and an <b>average other monthly outflow of " + avgOtherOutflow + "</b>,  with your current <b>housing placement rate of " + 
-                avg3MoHoused + " individuals housed each month</b>, you are already on track to meet your goal.<br>Keep it up!";
+                document.getElementById("goalMet").innerHTML = "If you maintain:<br>&nbsp&nbsp your average total monthly inflow of <b>" + 
+                avg3MoInflow + "</b> individuals,<br>&nbsp&nbsp your average other monthly outflow of <b>" + 
+                avgOtherOutflow + "</b> individuals,<br>&nbsp&nbsp and your monthly housing placement rate of <b>" + 
+                avg3MoHoused + "</b> individuals,<br><b>you will be on track to meet your goal.</b>  Keep it up!";
             } else {
+                document.getElementById("goalBox").style.display = "block";
                 document.getElementById("goalMet").style.display = "none";
                 document.getElementById("goal").style.display = "block";
                 document.getElementById("goalExplanation").style.display = "grid";
