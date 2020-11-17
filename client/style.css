@@ -41,12 +41,12 @@ h2 {
   .currentState {
     grid-column: 1;
     grid-row: 2;
-    margin-right: 10%;
+    margin-right: 5%;
   }
   .targetState {
     grid-column: 2;
     grid-row: 2;
-    margin-right: 10%;
+    margin-right: 5%;
   }
   .dataHeader {
     grid-column: 5/8;
