@@ -3,14 +3,13 @@ require('dotenv').config();
 
 // ENV VARIABLES
 const apiKey = process.env.API_KEY;
-const cmtyNamesSpreadsheetID = process.env.CMTY_NAME_SSID;
 const backEndSpreadsheetID = process.env.REDUC_GOAL_SSID;
 const scriptURL = process.env.SCRIPT_URL;
 
 // ADD COMMUNITY NAMES TO DROPDOWN
 // Get community names from Results to Date Map public Google Sheet
-var cmtyNamesRange = 'Sheet2!A2:A';
-var getCmtyNamesURL = 'https://sheets.googleapis.com/v4/spreadsheets/' + cmtyNamesSpreadsheetID + '/values/' + cmtyNamesRange + '?key=' + apiKey;
+var cmtyNamesRange = 'Community Names!A2:A';
+var getCmtyNamesURL = 'https://sheets.googleapis.com/v4/spreadsheets/' + backEndSpreadsheetID + '/values/' + cmtyNamesRange + '?key=' + apiKey;
 
 fetch(getCmtyNamesURL)
     .then(function(response) {
